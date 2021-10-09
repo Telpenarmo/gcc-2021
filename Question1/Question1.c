@@ -3,7 +3,9 @@
 
 int solution(int n)
 {
-    //code here
+    int both = n / 3;
+    int rest = n - 3 * both;
+    return 2 * both + (rest != 0);
 }
 
 /* Do not edit below code */
