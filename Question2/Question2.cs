@@ -11,7 +11,7 @@ public class Example
     public static int securitiesBuying(int z, List<int> security_value)
     {
         int no_of_stocks = 0;
-        var pairs = security_value.Select((x, i) => (num: x, index: i)).OrderBy(pair => pair.num);
+        var pairs = security_value.Select((x, i) => (num: x, index: i+1)).OrderBy(pair => pair.num);
 
         int sum = 0;
         foreach (var pair in pairs)
@@ -19,7 +19,7 @@ public class Example
             for (var i = 0; i < pair.index; i++)
             {
                 sum += pair.num;
-                if (sum >= z) return no_of_stocks;
+                if (sum > z) return no_of_stocks;
                 no_of_stocks++;
             }
         }
