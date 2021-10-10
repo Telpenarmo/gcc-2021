@@ -85,7 +85,6 @@ int no_of_stocks_purchased = securitiesBuying(z,security_value, n);
 cout << no_of_stocks_purchased;
  
  
- 
 }
  
  
