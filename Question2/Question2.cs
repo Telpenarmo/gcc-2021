@@ -8,14 +8,22 @@ using System.Threading.Tasks;
 public class Example
 {
     
-     public static int securitiesBuying(int z, List<int> security_value)
+    public static int securitiesBuying(int z, List<int> security_value)
     {
-        int no_of_stocks=0;
-         //participants code here
-       
+        int no_of_stocks = 0;
+        var x = security_value.Select((x, i) => (num: x, index: i)).OrderBy(pair => pair.num);
 
-        return no_of_stocks;
-        
+        int sum = 0;
+        foreach ((int num, int index) in x)
+        {
+            for (var i = 0; i < index; i++)
+            {
+                sum += num;
+                if (sum >= z) return no_of_stocks;
+                no_of_stocks++;
+            }
+        }
+        return no_of_stocks; 
     }
     
    public static void Main()
