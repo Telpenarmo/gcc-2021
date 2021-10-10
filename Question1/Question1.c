@@ -1,11 +1,8 @@
 #include<stdio.h>
 
-
 int solution(int n)
 {
-    int both = n / 3;
-    int rest = n % 3;
-    return 2 * both + (rest != 0);
+    return n/3*2 + (n % 3 != 0);
 }
 
 /* Do not edit below code */
