@@ -4,7 +4,7 @@
 int solution(int n)
 {
     int both = n / 3;
-    int rest = n - 3 * both;
+    int rest = n % 3;
     return 2 * both + (rest != 0);
 }
 
