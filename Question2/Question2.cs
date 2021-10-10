@@ -11,14 +11,14 @@ public class Example
     public static int securitiesBuying(int z, List<int> security_value)
     {
         int no_of_stocks = 0;
-        var x = security_value.Select((x, i) => (num: x, index: i)).OrderBy(pair => pair.num);
+        var pairs = security_value.Select((x, i) => (num: x, index: i)).OrderBy(pair => pair.num);
 
         int sum = 0;
-        foreach ((int num, int index) in x)
+        foreach (var pair in pairs)
         {
-            for (var i = 0; i < index; i++)
+            for (var i = 0; i < pair.index; i++)
             {
-                sum += num;
+                sum += pair.num;
                 if (sum >= z) return no_of_stocks;
                 no_of_stocks++;
             }
