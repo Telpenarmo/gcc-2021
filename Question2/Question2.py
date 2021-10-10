@@ -1,10 +1,30 @@
 
 
 def securitiesBuying(z, security_value):
-   no_of_stocks=0
-   #participants code here
+    def makePair(x, y):
+        return (x, y)
 
-   return no_of_stocks;
+    def pairKey(pair):
+        return pair[0]
+
+    z = int(z[0])
+    no_of_stocks=0
+    pairs = []
+    index = 1
+    for item in security_value:
+        pairs.append((int(item), index))
+        index += 1
+       
+    pairs.sort(key=pairKey)
+
+    sum = 0
+    for pair in pairs:
+        for _ in range(pair[1]):
+            sum += pair[0]
+            if sum > z: return no_of_stocks
+            no_of_stocks += 1
+           
+    return no_of_stocks;
 
 
 def main():
