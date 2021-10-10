@@ -1,4 +1,5 @@
 #include<stdio.h>
+#pragma GCC optimize("Ofast")
 
 int solution(int n)
 {
