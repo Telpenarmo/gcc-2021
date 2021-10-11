@@ -1,15 +1,17 @@
 def totalPairs(n, values):
     # Participants code will be here
     result = 0
+    max = 0
 
     for left in range(n-1):
-        max = values[left+1]
+        end = n if max == left else max+1
+        max = left+1
         result += 1
-        for right in range(left+2, n):
+        for right in range(left+2, end):
             if values[right-1] > values[left]:
                 break
-            if values[right] > max:
-                max = values[right]
+            if values[right] > values[max]:
+                max = right
                 result += 1
 
     return result
