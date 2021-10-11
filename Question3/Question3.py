@@ -39,7 +39,6 @@ def portfolio_profit_maximisation(maxSum: int, a: List[int], b: List[int]):
             j -= 1
     return result
     
-
 if __name__ == '__main__':
     first_multiple_input = input().rstrip().split()
 
