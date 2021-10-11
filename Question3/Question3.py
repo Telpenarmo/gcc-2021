@@ -31,9 +31,10 @@ def portfolio_profit_maximisation(maxSum: int, a: List[int], b: List[int]):
     for i in range(len(a_prefixes)):
         while j > 0:
             temp = a_prefixes[i] + b_prefixes[j]
+            pos = i+j+2
             if temp <= maxSum:
-                if i+j > result:
-                    result = i+j+2
+                if pos > result:
+                    result = pos
                 break
             j -= 1
     return result
