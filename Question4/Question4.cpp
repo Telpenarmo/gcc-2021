@@ -49,6 +49,11 @@ int totalPairs(int n, vector<int> values)
                 max = right;
                 result += 1;
             }
+            
+            if (positions[left] == positions[right]+1)
+            {
+                break;
+            }
         }
     }
 
