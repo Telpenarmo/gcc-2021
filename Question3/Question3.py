@@ -5,9 +5,39 @@ import os
 import random
 import re
 import sys
+from typing import List
 
-def portfolio_profit_maximisation(maxSum, a, b):
-    # Write your code here
+
+def portfolio_profit_maximisation(maxSum: int, a: List[int], b: List[int]):
+    a_prefixes: List[int] = []
+    b_prefixes: List[int] = []
+    sum = 0
+    for item in a:
+        sum += item
+        if sum > maxSum:
+            break
+        a_prefixes.append(sum)
+    sum = 0
+    for item in b:
+        sum += item
+        if sum > maxSum:
+            break
+        b_prefixes.append(sum)
+
+    result = 0
+    j = 0
+    i = 0
+    j = len(b_prefixes) - 1
+    for i in range(len(a_prefixes)):
+        while j > 0:
+            temp = a_prefixes[i] + b_prefixes[j]
+            if temp <= maxSum:
+                if i+j > result:
+                    result = i+j
+                break
+            j -= 1
+    return result+2
+
 
 if __name__ == '__main__':
     first_multiple_input = input().rstrip().split()
