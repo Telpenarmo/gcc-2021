@@ -9,8 +9,8 @@ from typing import List
 
 
 def portfolio_profit_maximisation(maxSum: int, a: List[int], b: List[int]):
-    a_prefixes: List[int] = []
-    b_prefixes: List[int] = []
+    a_prefixes: List[int] = [0]
+    b_prefixes: List[int] = [0]
     sum = 0
     for item in a:
         sum += item
@@ -31,7 +31,7 @@ def portfolio_profit_maximisation(maxSum: int, a: List[int], b: List[int]):
     for i in range(len(a_prefixes)):
         while j > 0:
             temp = a_prefixes[i] + b_prefixes[j]
-            pos = i+j+2
+            pos = i+j
             if temp <= maxSum:
                 if pos > result:
                     result = pos
