@@ -33,12 +33,11 @@ def portfolio_profit_maximisation(maxSum: int, a: List[int], b: List[int]):
             temp = a_prefixes[i] + b_prefixes[j]
             if temp <= maxSum:
                 if i+j > result:
-                    result = i+j
+                    result = i+j+2
                 break
             j -= 1
-    return result+2
+    return result
     
-
 
 if __name__ == '__main__':
     first_multiple_input = input().rstrip().split()
