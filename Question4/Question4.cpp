@@ -9,7 +9,7 @@ int totalPairs(int n, vector<int> values)
     int max = 0;
     for (int left = 0; left < n-1; left++)
     {
-        int end = max == left ? n : max;
+        int end = max == left ? n : max+1;
         max = left + 1;
         result += 1;
         for (int right = left + 2; right < end; right++)
