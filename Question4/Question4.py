@@ -1,6 +1,19 @@
 def totalPairs(n, values):
     # Participants code will be here
-    return -1
+    result = n-1
+    for left in range(n-2):
+        for right in range(left+2,n):
+            ok = True
+            for x in range(left+1,right):
+                mid = values[x]
+                if mid>values[left] or values[x]>values[right]:
+                    ok = False
+                    break
+            if ok:
+                result += 1
+    return result            
+            
+        
 
 if __name__ == "__main__":
     n = int(input())
