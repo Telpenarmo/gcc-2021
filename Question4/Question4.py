@@ -1,23 +1,18 @@
 def totalPairs(n, values):
     # Participants code will be here
-    result = n-1
-    greater = [None] * n
-    for i in range(n):
-        greater[i] = [None] * n
-        for j in range(n):
-            greater[i][j] = values[i] > values[j]
+    result = 0
 
-    for left in range(n-2):
+    for left in range(n-1):
+        max = values[left+1]
+        result += 1
         for right in range(left+2, n):
-            ok = True
-            for mid in range(left+1, right):
-                if greater[mid][left] or greater[mid][right]:
-                    ok = False
-                    break
-            if ok:
+            if values[right-1] > values[left]:
+                break
+            if values[right] > max:
+                max = values[right]
                 result += 1
-    return result
 
+    return result
 
 if __name__ == "__main__":
     n = int(input())
