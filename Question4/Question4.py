@@ -13,7 +13,6 @@ def totalPairs(n, values):
                 result += 1
     return result            
             
-        
 
 if __name__ == "__main__":
     n = int(input())
