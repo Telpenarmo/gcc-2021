@@ -48,6 +48,7 @@ int totalPairs(int n, vector<int> &values)
     return result;
 }
 
+
 int main()
 {
     int n;
