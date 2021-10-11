@@ -37,6 +37,7 @@ int totalPairs(int n, vector<int> &values)
             {
                 break;
             }
+            
             if (values[right] > values[max])
             {
                 max = right;
@@ -47,7 +48,6 @@ int totalPairs(int n, vector<int> &values)
 
     return result;
 }
-
 
 int main()
 {
