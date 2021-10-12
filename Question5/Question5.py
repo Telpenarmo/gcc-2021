@@ -19,9 +19,9 @@ def sol(n: str):
     elif current == max:
         maxRepeated = True
 
-    #if maxRepeated or max % 2 == 0:
-    #    return "B"
-    return "A"
+    if maxRepeated or max % 2 == 0:
+        return "B"
+    #return "A"
 
 
 # do not edit below code
