@@ -23,13 +23,14 @@ def sol(n: str):
         return "B"
     return "A"
 
+
 # do not edit below code
 
 
 def main():
     n = input()
     print(sol(n))
-
+    
 
 if __name__ == '__main__':
     main()
