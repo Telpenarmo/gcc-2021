@@ -14,8 +14,8 @@ def theHackathon(n, m, a, b, f, s, t):
     deps = []
 
     for i in range(n):
+        name = sorted_names[i]
         try:
-            name = sorted_names[i]
             dep = empls[name]
             dep = int(dep)-1
             empls[name] = i
