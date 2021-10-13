@@ -6,6 +6,7 @@ import sys
 
 def theHackathon(n, m, a, b, f, s, t):
     print("no groups")
+    return
     empls = {}
     for i in range(n):
         inp = input().split(" ")
