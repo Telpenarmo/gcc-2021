@@ -12,7 +12,7 @@ def theHackathon(n, m, a, b, f, s, t):
     sorted_names = sorted(empls)
     trees = []
     deps = []
-    if len(sorted_names) != n:
+    if len(empls) != n:
         print("no groups")
         return
     for i in range(n):
