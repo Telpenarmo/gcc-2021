@@ -63,7 +63,7 @@ def theHackathon(n, m, a, b, f, s, t):
             j = trees[j]
         if trees[j][3] == max:
             print(sorted_names[i])
-
+ 
 
 if __name__ == '__main__':
     inputdata = input().split()
