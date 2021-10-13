@@ -6,8 +6,6 @@ import sys
 
 def theHackathon(n, m, a, b, f, s, t):
     
-    print("no groups")
-    return
     empls = {}
     for i in range(n):
         inp = input().split(" ")
@@ -61,7 +59,7 @@ def theHackathon(n, m, a, b, f, s, t):
             trees[bigger] = new_data
 
     if max < a:
-        print("no groups")
+        #print("no groups")
         return
     for i in range(n):
         j = i
