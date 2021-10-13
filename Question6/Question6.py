@@ -12,6 +12,7 @@ def theHackathon(n, m, a, b, f, s, t):
             continue
         empls[inp[0]] = inp[1]
     sorted_names = sorted(empls)
+    n = len(empls)
     
     trees = []
     deps = []
