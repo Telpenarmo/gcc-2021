@@ -22,8 +22,6 @@ def theHackathon(n, m, a, b, f, s, t):
         data = [0, 0, 0, 1]
         data[dep] = 1
         trees.append(data)
-    print("no groups")
-    return
     max = 0
     for i in range(m):
         req = input().split()
@@ -31,6 +29,8 @@ def theHackathon(n, m, a, b, f, s, t):
         li = empls[l_name]
         r_name = req[1]
         ri = empls[r_name]
+        print("no groups")
+        return
 
         path = []
         while isinstance(trees[li], int):
