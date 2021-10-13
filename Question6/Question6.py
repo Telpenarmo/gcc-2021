@@ -59,14 +59,18 @@ def theHackathon(n, m, a, b, f, s, t):
             trees[bigger] = new_data
 
     if max < a:
-        #print("no groups")
+        print("no groups")
         return
-    for i in range(n):
-        j = i
-        while isinstance(trees[j], int):
-            j = trees[j]
-        if trees[j][3] == max:
-            print(sorted_names[i])
+    try:
+        for i in range(n):
+            j = i
+            while isinstance(trees[j], int):
+                j = trees[j]
+            if trees[j][3] == max:
+                print(sorted_names[i])
+    except:
+        while True:
+            pass
 
 
 if __name__ == '__main__':
