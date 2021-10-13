@@ -26,11 +26,11 @@ def theHackathon(n, m, a, b, f, s, t):
     for i in range(m):
         req = input().split()
         l_name = req[0]
+        print("no groups")
+        return
         li = empls[l_name]
         r_name = req[1]
         ri = empls[r_name]
-        print("no groups")
-        return
 
         path = []
         while isinstance(trees[li], int):
