@@ -60,6 +60,7 @@ def theHackathon(n, m, a, b, f, s, t):
 
     if max < a:
         print("no groups")
+        return
     for i in range(n):
         j = i
         while isinstance(trees[j], int):
