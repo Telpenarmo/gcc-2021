@@ -8,9 +8,8 @@ def theHackathon(n, m, a, b, f, s, t):
     empls = {}
     for i in range(n):
         inp = input().split(" ")
-        if inp[0] in empls and inp[0] and empls[inp[0]] == inp[1]:
-            print("no groups")
-            return
+        if inp[0] in empls and empls[inp[0]] == inp[1]:
+            continue
         empls[inp[0]] = inp[1]
     sorted_names = sorted(empls)
     
@@ -57,8 +56,8 @@ def theHackathon(n, m, a, b, f, s, t):
             trees[smaller] = bigger
             trees[bigger] = new_data
 
-    #if max < a:
-        
+    if max < a:
+        print("no groups")
     for i in range(n):
         j = i
         while isinstance(trees[j], int):
