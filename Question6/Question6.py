@@ -24,10 +24,10 @@ def theHackathon(n, m, a, b, f, s, t):
         trees.append(data)
     max = 0
     for i in range(m):
-        req = input().split()
-        l_name = req[0]
         print("no groups")
         return
+        req = input().split()
+        l_name = req[0]
         li = empls[l_name]
         r_name = req[1]
         ri = empls[r_name]
