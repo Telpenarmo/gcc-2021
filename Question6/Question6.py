@@ -22,8 +22,9 @@ def theHackathon(n, m, a, b, f, s, t):
         data = [0, 0, 0, 1]
         data[dep] = 1
         trees.append(data)
-        print("no groups")
-        return
+        if i > 1:
+            print("no groups")
+            return
     max = 0
     for i in range(m):
         req = input().split()
