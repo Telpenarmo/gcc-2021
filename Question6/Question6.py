@@ -26,7 +26,7 @@ def theHackathon(n, m, a, b, f, s, t):
         data = [0, 0, 0, 1]
         data[dep] = 1
         trees.append(data)
-    max = 0
+    max = 1
     for i in range(m):
         req = input().split()
         l_name = req[0]
