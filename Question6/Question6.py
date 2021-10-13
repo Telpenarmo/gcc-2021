@@ -19,13 +19,13 @@ def theHackathon(n, m, a, b, f, s, t):
             dep = empls[name]
             dep = int(dep)-1
             empls[name] = i
-            deps.append(dep)
-            data = [0, 0, 0, 1]
-            data[dep] = 1
-            trees.append(data)
         except:
             print("no groups")
             return
+        deps.append(dep)
+        data = [0, 0, 0, 1]
+        data[dep] = 1
+        trees.append(data)
     max = 0
     for i in range(m):
         req = input().split()
