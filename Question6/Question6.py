@@ -8,12 +8,12 @@ def theHackathon(n, m, a, b, f, s, t):
     empls = {}
     for i in range(n):
         inp = input().split()
-        empls[inp[0]] = inp[1]
-    sorted_names = sorted(empls)
-    for i in range(len(sorted_names)-1):
-        if sorted_names[i] == sorted_names[i+1]:
+        if inp[0]:
             print("no groups")
             return
+        empls[inp[0]] = inp[1]
+    sorted_names = sorted(empls)
+    
     trees = []
     deps = []
     for i in range(n):
