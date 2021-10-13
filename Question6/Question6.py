@@ -16,7 +16,7 @@ def theHackathon(n, m, a, b, f, s, t):
     for i in range(n):
         try:
             name = sorted_names[i]
-        except:
+        except IndexError:
             print("no groups")
             return
         dep = empls[name]
