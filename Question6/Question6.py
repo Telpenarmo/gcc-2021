@@ -14,14 +14,14 @@ def theHackathon(n, m, a, b, f, s, t):
     deps = []
 
     for i in range(n):
-        name = sorted_names[i]
         try:
-            dep = empls[name]
-            dep = int(dep)-1
-            empls[name] = i
+            name = sorted_names[i]
         except:
             print("no groups")
             return
+        dep = empls[name]
+        dep = int(dep)-1
+        empls[name] = i
         deps.append(dep)
         data = [0, 0, 0, 1]
         data[dep] = 1
