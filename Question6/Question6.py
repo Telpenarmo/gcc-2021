@@ -26,7 +26,7 @@ def theHackathon(n, m, a, b, f, s, t):
         data = [0, 0, 0, 1]
         data[dep] = 1
         trees.append(data)
-    max = 0
+    max = 1
     for i in range(m):
         req = input().split()
         l_name = req[0]
@@ -61,16 +61,13 @@ def theHackathon(n, m, a, b, f, s, t):
     if max < a:
         print("no groups")
         return
-    try:
-        for i in range(n):
-            j = i
-            while isinstance(trees[j], int):
-                j = trees[j]
-            if trees[j][3] == max:
-                print(sorted_names[i])
-    except:
-        while True:
-            pass
+    
+    for i in range(n):
+        j = i
+        while isinstance(trees[j], int):
+            j = trees[j]
+        if trees[j][3] == max:
+            print(sorted_names[i])
 
 
 if __name__ == '__main__':
