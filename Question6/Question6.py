@@ -5,20 +5,20 @@ import sys
 
 
 def theHackathon(n, m, a, b, f, s, t):
-    
+
     empls = {}
     for i in range(n):
         inp = input().split(" ")
         if inp[0] in empls and empls[inp[0]] == inp[1]:
             continue
         empls[inp[0]] = inp[1]
-    sorted_names = sorted(empls)
+    names = list(empls)
     n = len(empls)
     
     trees = []
     deps = []
     for i in range(n):
-        name = sorted_names[i]
+        name = names[i]
         dep = empls[name]
         dep = int(dep)-1
         empls[name] = i
@@ -26,7 +26,7 @@ def theHackathon(n, m, a, b, f, s, t):
         data = [0, 0, 0, 1]
         data[dep] = 1
         trees.append(data)
-    max = 1
+    max = 0
     for i in range(m):
         req = input().split()
         l_name = req[0]
@@ -61,14 +61,17 @@ def theHackathon(n, m, a, b, f, s, t):
     if max < a:
         print("no groups")
         return
-    
+    toWrite = []
     for i in range(n):
         j = i
         while isinstance(trees[j], int):
             j = trees[j]
         if trees[j][3] == max:
-            print(sorted_names[i])
-
+            toWrite.append(names[i])
+    sortedNames = sorted(toWrite)
+    for i in range(len(sortedNames)):
+        print(sortedNames[i])
+        
 
 
 if __name__ == '__main__':
