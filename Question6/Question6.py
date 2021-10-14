@@ -70,6 +70,7 @@ def theHackathon(n, m, a, b, f, s, t):
             print(sorted_names[i])
 
 
+
 if __name__ == '__main__':
     inputdata = input().split()
 
