@@ -59,8 +59,6 @@ def theHackathon(n, m, a, b, f, s, t):
             trees[bigger] = new_data
 
     if max < a:
-        while True:
-            pass
         print("no groups")
         return
     
