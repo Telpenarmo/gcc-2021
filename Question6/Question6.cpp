@@ -58,27 +58,26 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         getline(cin, inputdata_temp);
         auto req = split_string(inputdata_temp);
         int li,ri;
-
-        try
-        {
         
         li = empls[req[0]];
         ri = empls[req[1]];
+
+        vector<int> path;
+        try{
+        while (!root[li])
+        {
+            path.push_back(li);
+            li = trees[li].pointer;
         }
-        catch(const std::exception& e)
+        
+        }
+        catch(const exception& e)
         {
             while (true)
             {
                 continue;
             }
             
-        }
-
-        vector<int> path;
-        while (!root[li])
-        {
-            path.push_back(li);
-            li = trees[li].pointer;
         }
         int psize = path.size();
         for (int j = 0; j < psize; j++)
