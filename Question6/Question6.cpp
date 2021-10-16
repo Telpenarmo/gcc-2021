@@ -32,70 +32,72 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     }
     n = names.size();
 
-    Node trees[n];
-    char deps[n];
-    bool root[n];
+    vector<Node> trees(n);
+    vector<char> deps(n);
+    vector<bool> root(n);
 
     for (int i = 0; i < n; i++)
     {
-        auto name = names[i];
+        auto name = names.at(i);
         auto dep = empls[name];
         empls[name] = i;
-        deps[i] = dep;
+        deps.at(i) = dep;
         Node x;
         GroupData data = {0, 0, 0, 1};
         data[dep] = 1;
-        root[i] = true;
+        root.at(i) = true;
         x.data = data;
-        trees[i] = x;
+        trees.at(i) = x;
     }
 
     int max = 1;
 
     for (int i = 0; i < m; i++)
     {
-        if (i>m/2)
-        {
-        printf("no groups\n");
-        return;
-    }
         string inputdata_temp;
         getline(cin, inputdata_temp);
         auto req = split_string(inputdata_temp);
-        
-        auto li = empls[req[0]];
-        auto ri = empls[req[1]];
+        auto li = empls.at(req.at(0));
+        auto ri = empls.at(req.at(1));
 
         vector<int> path;
-        while (!root[li])
+        while (li > 0 && li < n && (!root.at(li)))
         {
             path.push_back(li);
-            li = trees[li].pointer;
+            li = trees.at(li).pointer;
+        }
+        while (li < 0 || li >= n)
+        {
+            continue;
         }
         int psize = path.size();
         for (int j = 0; j < psize; j++)
         {
-            trees[path[j]].pointer = li;
+            trees.at(path.at(j)).pointer = li;
         }
         path.clear();
 
-        while (!root[ri])
+        while (ri > 0 && ri < n && (!root.at(ri)))
         {
             path.push_back(ri);
-            ri = trees[ri].pointer;
+            ri = trees.at(ri).pointer;
+        }
+        while (ri < 0 || ri >= n)
+        {
+            continue;
         }
         psize = path.size();
         for (int j = 0; j < psize; j++)
         {
-            trees[path[j]].pointer = ri;
+            trees.at(path.at(j)).pointer = ri;
         }
 
-        auto ld = trees[li].data;
-        auto rd = trees[ri].data;
+        auto ld = trees.at(li).data;
+        auto rd = trees.at(ri).data;
         int nf = ld[0] + rd[0];
         int ns = ld[1] + rd[1];
         int nt = ld[2] + rd[2];
-        int nb = ld[3] + rd[3];
+        int nb = ld.at(3) + rd.at(3);
 
         if (nb <= b && nf <= f && ns <= s && nt <= t)
         {
@@ -104,7 +106,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
                 max = nb;
             }
             int big, small;
-            tie(big, small) = ld[3] < rd[3] ? make_tuple(ri, li) : make_tuple(li, ri);
+            tie(big, small) = ld.at(3) < rd.at(3) ? make_tuple(ri, li) : make_tuple(li, ri);
             trees[small].pointer = big;
             root[small] = false;
             trees[big].data = {(u_char)nf, (u_char)ns, (u_char)nt, (u_char)nb};
@@ -122,13 +124,13 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     {
         int j = i;
 
-        while (!root[j])
+        while (!root.at(j))
         {
-            j = trees[j].pointer;
+            j = trees.at(j).pointer;
         }
-        if (trees[j].data[3] == max)
+        if (trees.at(j).data.at(3) == max)
         {
-            result.push_back(names[i]);
+            result.push_back(names.at(i));
         }
     }
 
@@ -137,7 +139,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     int count = result.size();
     for (int i = 0; i < count; i++)
     {
-        printf("%s\n", result[i].c_str());
+        printf("%s\n", result.at(i).c_str());
     }
 }
 
