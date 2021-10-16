@@ -23,9 +23,10 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         auto inputdata = split_string(inputdata_temp);
         auto name = inputdata[0];
         auto dep = inputdata[1][0] - 49;
+        unordered_map<string, int>::iterator x,y;
 try{
-        auto x = empls.find(name);
-        auto y = empls.end();
+        x = empls.find(name);
+        y = empls.end();
 } catch (...){while (true) {continue;}}
         if (x != y)
         {
