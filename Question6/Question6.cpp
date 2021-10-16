@@ -91,6 +91,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         {
             trees.at(path.at(j)).pointer = ri;
         }
+        if (li == ri) {continue;}
 
         auto ld = trees.at(li).data;
         auto rd = trees.at(ri).data;
