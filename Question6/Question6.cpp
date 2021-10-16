@@ -125,8 +125,6 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     }
 
     sort(result.begin(), result.end());
-    
-    while (result.size() > 10) {continue;}
 
     for (string name : result)
     {
