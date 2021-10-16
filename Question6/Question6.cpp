@@ -100,17 +100,16 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             int big, small;
             tie(big, small) = ld.at(3) < rd.at(3) ? make_tuple(ri, li) : make_tuple(li, ri);
             trees[small].pointer = big;
-            while (big > n) {continue;}
             root[small] = false;
             trees[big].data = {(u_char)nf, (u_char)ns, (u_char)nt, (u_char)nb};
         }
     }
 
-    if (max < a)
-    {
-        printf("no groups\n");
-        return;
-    }
+    //if (max < a)
+    //{
+        //printf("no groups\n");
+        //return;
+    //}
 
     vector<string> result;
     for (int i = 0; i < n; i++)
@@ -156,10 +155,8 @@ int main()
     int s = stoi(inputdata[5]);
 
     int t = stoi(inputdata[6]);
-    try{
-    theHackathon(n, m, a, b, f, s, t);
     
-        } catch(...){ while (true){ continue; }}
+    theHackathon(n, m, a, b, f, s, t);
     
     return 0;
 }
