@@ -20,10 +20,10 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     {
         string inputdata_temp;
         getline(cin, inputdata_temp);
-try{
         auto inputdata = split_string(inputdata_temp);
         auto name = inputdata[0];
         auto dep = inputdata[1][0] - 49;
+try{
         if (empls.find(name) != empls.end())
         {
             continue;
