@@ -68,10 +68,6 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             li = trees[li].pointer;
         }
         int psize = path.size();
-        if (psize > 0){
-        
-printf("no groups\n");
-return;}
         for (int j = 0; j < psize; j++)
         {
             trees[path[j]].pointer = li;
@@ -84,6 +80,10 @@ return;}
             ri = trees[ri].pointer;
         }
         psize = path.size();
+        if (psize > 0){
+        
+printf("no groups\n");
+return;}
         for (int j = 0; j < psize; j++)
         {
             trees[path[j]].pointer = ri;
