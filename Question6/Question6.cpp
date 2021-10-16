@@ -130,7 +130,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 
     for (string name : result)
     {
-        printf("%s\n", name.c_str());
+        cout << name << "\n";
     }
 }
 
