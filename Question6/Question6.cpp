@@ -24,11 +24,13 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         auto name = inputdata[0];
         auto dep = inputdata[1][0] - 49;
 try{
-        if (empls.find(name) != empls.end())
+        auto x = empls.find(name);
+        auto y = empls.end();
+} catch (...){while (true) {continue;}}
+        if (x != y)
         {
             continue;
         }
-} catch (...){while (true) {continue;}}
         empls[name] = dep;
         names.push_back(name);
     }
