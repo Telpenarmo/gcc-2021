@@ -11,6 +11,20 @@ typedef union
     int pointer;
 } Node;
 
+bool compare_nocase(const std::string &first, const std::string &second)
+{
+    unsigned int i = 0;
+    while ((i < first.length()) && (i < second.length()))
+    {
+        if (tolower(first[i]) < tolower(second[i]))
+            return true;
+        else if (tolower(first[i]) > tolower(second[i]))
+            return false;
+        ++i;
+    }
+    return (first.length() < second.length());
+}
+
 void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 {
     unordered_map<string, int> empls;
@@ -20,9 +34,9 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         string inputdata_temp;
         getline(cin, inputdata_temp);
 
-        vector<string> inputdata = split_string(inputdata_temp);
+        auto inputdata = split_string(inputdata_temp);
         auto name = inputdata[0];
-        auto dep = inputdata[1][0];
+        auto dep = inputdata[1][0] - 49;
         if (empls.find(name) != empls.end())
         {
             continue;
@@ -40,16 +54,17 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     {
         auto name = names[i];
         auto dep = empls[name];
-        dep -= 49;
         empls[name] = i;
         deps[i] = dep;
+        Node x;
         GroupData data = {0, 0, 0, 1};
         data[dep] = 1;
         root[i] = true;
-        trees[i] = {data};
+        x.data = data;
+        trees[i] = x;
     }
 
-    int max = 0;
+    int max = 1;
 
     for (size_t i = 0; i < m; i++)
     {
@@ -59,17 +74,16 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 
         auto li = empls[req[0]];
         auto ri = empls[req[1]];
+
         vector<int> path;
         while (!root[li])
         {
             path.push_back(li);
             li = trees[li].pointer;
         }
-        for (int i : path)
+        for (int j : path)
         {
-            Node x;
-            x.pointer = li;
-            trees[i] = x;
+            trees[j].pointer = li;
         }
         path.clear();
 
@@ -78,11 +92,9 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             path.push_back(ri);
             ri = trees[ri].pointer;
         }
-        for (int i : path)
+        for (int j : path)
         {
-            Node x;
-            x.pointer = ri;
-            trees[i] = x;
+            trees[j].pointer = ri;
         }
 
         auto ld = trees[li].data;
@@ -100,9 +112,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             }
             int big, small;
             tie(big, small) = ld[3] < rd[3] ? make_tuple(ri, li) : make_tuple(li, ri);
-            Node big_pointer;
-            big_pointer.pointer = big;
-            trees[small] = big_pointer;
+            trees[small].pointer = big;
             root[small] = false;
             trees[big] = {nf, ns, nt, nb};
         }
@@ -110,7 +120,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 
     if (max < a)
     {
-        printf("no groups!");
+        printf("no groups\n");
         return;
     }
 
@@ -128,7 +138,9 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             result.push_back(names[i]);
         }
     }
-    sort(result.begin(), result.end());
+
+    sort(result.begin(), result.end(), compare_nocase);
+
     for (auto name : result)
     {
         printf("%s\n", name.c_str());
