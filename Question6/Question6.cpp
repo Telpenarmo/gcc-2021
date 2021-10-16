@@ -104,7 +104,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         int nt = ld[2] + rd[2];
         int nb = ld[3] + rd[3];
 
-        if (nb <= b and nf <= f and ns <= s and nt <= t)
+        if (nb <= b && nf <= f && ns <= s && nt <= t)
         {
             if (nb > max)
             {
@@ -122,9 +122,6 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     {
         printf("no groups\n");
         return;
-    }
-    while (true){
-        continue;
     }
 
     vector<string> result;
