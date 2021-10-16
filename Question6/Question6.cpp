@@ -65,10 +65,9 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             path.push_back(li);
             li = trees.at(li).pointer;
         }
-        int psize = path.size();
-        for (int j = 0; j < psize; j++)
+        for (int j : path)
         {
-            trees.at(path.at(j)).pointer = li;
+            trees.at(j).pointer = li;
         }
         path.clear();
 
@@ -77,10 +76,9 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             path.push_back(ri);
             ri = trees.at(ri).pointer;
         }
-        psize = path.size();
-        for (int j = 0; j < psize; j++)
+        for (int j : path)
         {
-            trees.at(path.at(j)).pointer = ri;
+            trees.at(j).pointer = ri;
         }
         if (li == ri) {continue;}
 
@@ -128,10 +126,9 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 
     sort(result.begin(), result.end());
 
-    int count = result.size();
-    for (int i = 0; i < count; i++)
+    for (int name : result)
     {
-        printf("%s\n", result.at(i).c_str());
+        printf("%s\n", name.c_str());
     }
 }
 
