@@ -68,7 +68,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             li = trees[li].pointer;
         }
         int psize = path.size();
-        if (psize > 1){
+        if (psize > 0){
         
 printf("no groups\n");
 return;}
