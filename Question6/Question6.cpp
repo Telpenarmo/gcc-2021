@@ -23,7 +23,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         auto inputdata = split_string(inputdata_temp);
         auto name = inputdata[0];
         auto dep = inputdata[1][0] - 49;
-        if (empls.find(name) != empls.end())
+        if (empls.find(name) != empls.end() && empls[name] == dep)
         {
             continue;
         }
@@ -125,10 +125,12 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     }
 
     sort(result.begin(), result.end());
+    
+    while (result.size() > 10) {continue;}
 
     for (string name : result)
     {
-        cout << name << "\n";
+        printf("%s\n", name.c_str());
     }
 }
 
