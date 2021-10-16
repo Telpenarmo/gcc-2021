@@ -13,6 +13,7 @@ typedef union
 
 void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 {
+try{
     unordered_map<string, int> empls;
     vector<string> names;
     for (int i = 0; i < n; i++)
@@ -49,12 +50,11 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         x.data = data;
         trees.at(i) = x;
     }
-
+} catch (...){while (true) {continue;}}
     int max = 1;
 
     for (int i = 0; i < m; i++)
     {
-    try{
         string inputdata_temp;
         getline(cin, inputdata_temp);
         auto req = split_string(inputdata_temp);
@@ -112,7 +112,6 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             root[small] = false;
             trees[big].data = {(u_char)nf, (u_char)ns, (u_char)nt, (u_char)nb};
         }
-        } catch (...){while (true) {continue;}}
     }
 
     if (max < a)
