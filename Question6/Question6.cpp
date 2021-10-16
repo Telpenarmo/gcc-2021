@@ -32,6 +32,7 @@ try{
         names.push_back(name);
     }
     n = names.size();
+} catch (...){while (true) {continue;}}
 
     vector<Node> trees(n);
     vector<char> deps(n);
@@ -50,7 +51,6 @@ try{
         x.data = data;
         trees.at(i) = x;
     }
-} catch (...){while (true) {continue;}}
     int max = 1;
 
     for (int i = 0; i < m; i++)
