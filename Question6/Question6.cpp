@@ -84,9 +84,6 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         {
             trees[path[j]].pointer = ri;
         }
-        
-printf("no groups\n");
-return;
 
         auto ld = trees[li].data;
         auto rd = trees[ri].data;
@@ -94,6 +91,8 @@ return;
         int ns = ld[1] + rd[1];
         int nt = ld[2] + rd[2];
         int nb = ld[3] + rd[3];
+printf("no groups\n");
+return;
 
         if (nb <= b && nf <= f && ns <= s && nt <= t)
         {
