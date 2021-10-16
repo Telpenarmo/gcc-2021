@@ -57,12 +57,13 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         string inputdata_temp;
         getline(cin, inputdata_temp);
         auto req = split_string(inputdata_temp);
+        int li,ri;
 
         try
         {
         
-        auto li = empls[req[0]];
-        auto ri = empls[req[1]];
+        li = empls[req[0]];
+        ri = empls[req[1]];
         }
         catch(const std::exception& e)
         {
