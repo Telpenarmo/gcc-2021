@@ -66,6 +66,9 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         {
             path.push_back(li);
             li = trees[li].pointer;
+            
+printf("no groups\n");
+return;
         }
         int psize = path.size();
         for (int j = 0; j < psize; j++)
@@ -104,9 +107,6 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             root[small] = false;
             trees[big].data = {(u_char)nf, (u_char)ns, (u_char)nt, (u_char)nb};
         }
-        
-printf("no groups\n");
-return;
     }
 
     if (max < a)
