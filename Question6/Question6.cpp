@@ -49,8 +49,6 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         x.data = data;
         trees[i] = x;
     }
-printf("no groups\n");
-return;
 
     int max = 1;
 
@@ -86,6 +84,9 @@ return;
         {
             trees[path[j]].pointer = ri;
         }
+        
+printf("no groups\n");
+return;
 
         auto ld = trees[li].data;
         auto rd = trees[ri].data;
