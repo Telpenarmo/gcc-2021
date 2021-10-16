@@ -11,20 +11,6 @@ typedef union
     int pointer;
 } Node;
 
-bool compare_nocase(const std::string &first, const std::string &second)
-{
-    unsigned int i = 0;
-    while ((i < first.length()) && (i < second.length()))
-    {
-        if (tolower(first[i]) < tolower(second[i]))
-            return true;
-        else if (tolower(first[i]) > tolower(second[i]))
-            return false;
-        ++i;
-    }
-    return (first.length() < second.length());
-}
-
 void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 {
     unordered_map<string, int> empls;
@@ -66,7 +52,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 
     int max = 1;
 
-    for (size_t i = 0; i < m; i++)
+    for (int i = 0; i < m; i++)
     {
         string inputdata_temp;
         getline(cin, inputdata_temp);
@@ -81,9 +67,10 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             path.push_back(li);
             li = trees[li].pointer;
         }
-        for (int j : path)
+        int psize = path.size();
+        for (int j = 0; j < psize; j++)
         {
-            trees[j].pointer = li;
+            trees[path[j]].pointer = li;
         }
         path.clear();
 
@@ -92,9 +79,10 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             path.push_back(ri);
             ri = trees[ri].pointer;
         }
-        for (int j : path)
+        psize = path.size();
+        for (int j = 0; j < psize; j++)
         {
-            trees[j].pointer = ri;
+            trees[path[j]].pointer = ri;
         }
 
         auto ld = trees[li].data;
@@ -114,7 +102,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             tie(big, small) = ld[3] < rd[3] ? make_tuple(ri, li) : make_tuple(li, ri);
             trees[small].pointer = big;
             root[small] = false;
-            trees[big] = {nf, ns, nt, nb};
+            trees[big].data = {(u_char)nf, (u_char)ns, (u_char)nt, (u_char)nb};
         }
     }
 
@@ -139,11 +127,12 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         }
     }
 
-    sort(result.begin(), result.end(), compare_nocase);
+    sort(result.begin(), result.end());
 
-    for (auto name : result)
+    int count = result.size();
+    for (int i = 0; i < count; i++)
     {
-        printf("%s\n", name.c_str());
+        printf("%s\n", result[i].c_str());
     }
 }
 
