@@ -54,6 +54,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 
     for (int i = 0; i < m; i++)
     {
+    try{
         string inputdata_temp;
         getline(cin, inputdata_temp);
         auto req = split_string(inputdata_temp);
@@ -63,21 +64,10 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         ri = empls[req[1]];
 
         vector<int> path;
-        try{
         while (!root[li])
         {
             path.push_back(li);
             li = trees[li].pointer;
-        }
-        
-        }
-        catch(const exception& e)
-        {
-            while (true)
-            {
-                continue;
-            }
-            
         }
         int psize = path.size();
         for (int j = 0; j < psize; j++)
@@ -115,6 +105,16 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             trees[small].pointer = big;
             root[small] = false;
             trees[big].data = {(u_char)nf, (u_char)ns, (u_char)nt, (u_char)nb};
+        }
+        
+        }
+        catch(const exception& e)
+        {
+            while (true)
+            {
+                continue;
+            }
+            
         }
     }
 
