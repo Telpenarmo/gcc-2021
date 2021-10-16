@@ -160,7 +160,7 @@ int main()
     theHackathon(n, m, a, b, f, s, t);
     
         }
-        catch()
+        catch(const std::exception& e)
         {
             while (true)
             {
