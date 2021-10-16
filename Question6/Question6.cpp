@@ -58,8 +58,20 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         getline(cin, inputdata_temp);
         auto req = split_string(inputdata_temp);
 
+        try
+        {
+        
         auto li = empls[req[0]];
         auto ri = empls[req[1]];
+        }
+        catch(const std::exception& e)
+        {
+            while (true)
+            {
+                continue;
+            }
+            
+        }
 
         vector<int> path;
         while (!root[li])
@@ -104,10 +116,6 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             root[small] = false;
             trees[big].data = {(u_char)nf, (u_char)ns, (u_char)nt, (u_char)nb};
         }
-        if (psize > 0){
-        
-printf("no groups\n");
-return;}
     }
 
     if (max < a)
