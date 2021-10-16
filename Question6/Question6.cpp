@@ -13,7 +13,6 @@ typedef union
 
 void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 {
-try {
     unordered_map<string, int> empls;
     vector<string> names;
     for (int i = 0; i < n; i++)
@@ -58,10 +57,9 @@ try {
         string inputdata_temp;
         getline(cin, inputdata_temp);
         auto req = split_string(inputdata_temp);
-        int li,ri;
         
-        li = empls[req[0]];
-        ri = empls[req[1]];
+        auto li = empls[req[0]];
+        auto ri = empls
 
         vector<int> path;
         while (!root[li])
@@ -136,16 +134,6 @@ try {
     {
         printf("%s\n", result[i].c_str());
     }
-    
-        }
-        catch(const exception& e)
-        {
-            while (true)
-            {
-                continue;
-            }
-            
-        }
 }
 
 int main()
@@ -168,8 +156,18 @@ int main()
     int s = stoi(inputdata[5]);
 
     int t = stoi(inputdata[6]);
-
+    try {
     theHackathon(n, m, a, b, f, s, t);
+    
+        }
+        catch()
+        {
+            while (true)
+            {
+                continue;
+            }
+            
+        }
 
     return 0;
 }
