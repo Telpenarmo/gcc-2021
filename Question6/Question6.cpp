@@ -81,10 +81,6 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             path.push_back(ri);
             ri = trees.at(ri).pointer;
         }
-        while (ri < 0 || ri >= n)
-        {
-            continue;
-        }
         psize = path.size();
         for (int j = 0; j < psize; j++)
         {
