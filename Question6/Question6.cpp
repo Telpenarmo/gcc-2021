@@ -13,6 +13,7 @@ typedef union
 
 void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 {
+try {
     unordered_map<string, int> empls;
     vector<string> names;
     for (int i = 0; i < n; i++)
@@ -51,7 +52,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     }
 
     int max = 1;
-try {
+
     for (int i = 0; i < m; i++)
     {
         string inputdata_temp;
@@ -106,16 +107,6 @@ try {
             trees[big].data = {(u_char)nf, (u_char)ns, (u_char)nt, (u_char)nb};
         }
     }
-    
-        }
-        catch(const exception& e)
-        {
-            while (true)
-            {
-                continue;
-            }
-            
-        }
 
     if (max < a)
     {
@@ -145,6 +136,16 @@ try {
     {
         printf("%s\n", result[i].c_str());
     }
+    
+        }
+        catch(const exception& e)
+        {
+            while (true)
+            {
+                continue;
+            }
+            
+        }
 }
 
 int main()
