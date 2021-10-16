@@ -13,9 +13,9 @@ typedef union
 
 void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 {
-try{
     unordered_map<string, int> empls;
     vector<string> names;
+try{
     for (int i = 0; i < n; i++)
     {
         string inputdata_temp;
