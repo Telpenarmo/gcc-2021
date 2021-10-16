@@ -28,9 +28,9 @@ try{
         {
             continue;
         }
+} catch (...){while (true) {continue;}}
         empls[name] = dep;
         names.push_back(name);
-} catch (...){while (true) {continue;}}
     }
     n = names.size();
 
