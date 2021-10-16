@@ -47,7 +47,7 @@ def theHackathon(n, m, a, b, f, s, t):
             ri = trees[ri]
         for i in path:
             trees[i] = ri
-
+        if li == ri: continue
         ld = trees[li]
         rd = trees[ri]
         (bigger, smaller) = (ri, li) if ld[3] < rd[3] else (li, ri)
