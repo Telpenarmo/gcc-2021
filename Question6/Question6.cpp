@@ -108,7 +108,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     //if (max < a)
     //{
         printf("no groups\n");
-        //return;
+        return;
     //}
 
     vector<string> result;
