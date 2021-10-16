@@ -26,8 +26,8 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         unordered_map<string, int>::iterator x,y;
 try{
         x = empls.find(name);
-        y = empls.end();
 } catch (...){while (true) {continue;}}
+        y = empls.end();
         if (x != y)
         {
             continue;
