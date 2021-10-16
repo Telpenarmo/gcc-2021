@@ -111,7 +111,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         printf("no groups\n");
         return;
     }
-
+return;
     vector<string> result;
     for (int i = 0; i < n; i++)
     {
@@ -156,18 +156,7 @@ int main()
     int s = stoi(inputdata[5]);
 
     int t = stoi(inputdata[6]);
-    try {
     theHackathon(n, m, a, b, f, s, t);
-    
-        }
-        catch(const std::exception& e)
-        {
-            while (true)
-            {
-                continue;
-            }
-            
-        }
 
     return 0;
 }
