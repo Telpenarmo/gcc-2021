@@ -13,8 +13,6 @@ typedef union
 
 void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 {
-printf("no groups\n");
-return;
     unordered_map<string, int> empls;
     vector<string> names;
     for (int i = 0; i < n; i++)
@@ -108,11 +106,11 @@ return;
         }
     }
 
-    if (max < a)
-    {
+    //if (max < a)
+    //{
         printf("no groups\n");
         return;
-    }
+    //}
 
     vector<string> result;
     for (int i = 0; i < n; i++)
