@@ -54,6 +54,11 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 
     for (int i = 0; i < m; i++)
     {
+        if (i>m/2)
+        {
+        printf("no groups\n");
+        return;
+    }
         string inputdata_temp;
         getline(cin, inputdata_temp);
         auto req = split_string(inputdata_temp);
@@ -106,11 +111,11 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         }
     }
 
-    //if (max < a)
-    //{
+    if (max < a)
+    {
         printf("no groups\n");
         return;
-    //}
+    }
 
     vector<string> result;
     for (int i = 0; i < n; i++)
