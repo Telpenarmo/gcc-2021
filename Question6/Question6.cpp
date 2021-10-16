@@ -126,7 +126,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 
     sort(result.begin(), result.end());
 
-    for (int name : result)
+    for (string name : result)
     {
         printf("%s\n", name.c_str());
     }
