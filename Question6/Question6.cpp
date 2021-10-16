@@ -123,6 +123,9 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         printf("no groups\n");
         return;
     }
+    while (true){
+        continue;
+    }
 
     vector<string> result;
     for (int i = 0; i < n; i++)
