@@ -51,10 +51,9 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     }
 
     int max = 1;
-
+try {
     for (int i = 0; i < m; i++)
     {
-    try{
         string inputdata_temp;
         getline(cin, inputdata_temp);
         auto req = split_string(inputdata_temp);
@@ -106,7 +105,8 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             root[small] = false;
             trees[big].data = {(u_char)nf, (u_char)ns, (u_char)nt, (u_char)nb};
         }
-        
+    }
+    
         }
         catch(const exception& e)
         {
@@ -116,7 +116,6 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             }
             
         }
-    }
 
     if (max < a)
     {
