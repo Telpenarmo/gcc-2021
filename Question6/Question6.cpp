@@ -65,10 +65,10 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             path.push_back(li);
             li = trees.at(li).pointer;
             
-        while (li >= n)
-        {
-            continue;
-        }
+        //while (li >= n)
+        //{
+         //   continue;
+        //}
         }
         int psize = path.size();
         for (int j = 0; j < psize; j++)
@@ -81,10 +81,10 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         {
             path.push_back(ri);
             ri = trees.at(ri).pointer;
-        while (ri >= n)
-        {
-            continue;
-        }
+        //while (ri >= n)
+        //{
+          //  continue;
+        //}
         }
         psize = path.size();
         for (int j = 0; j < psize; j++)
@@ -108,6 +108,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             int big, small;
             tie(big, small) = ld.at(3) < rd.at(3) ? make_tuple(ri, li) : make_tuple(li, ri);
             trees[small].pointer = big;
+            while (big > n) {continue;}
             root[small] = false;
             trees[big].data = {(u_char)nf, (u_char)ns, (u_char)nt, (u_char)nb};
         }
