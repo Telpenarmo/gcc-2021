@@ -15,12 +15,12 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 {
     unordered_map<string, int> empls;
     vector<string> names;
-try{
+
     for (int i = 0; i < n; i++)
     {
         string inputdata_temp;
         getline(cin, inputdata_temp);
-
+try{
         auto inputdata = split_string(inputdata_temp);
         auto name = inputdata[0];
         auto dep = inputdata[1][0] - 49;
@@ -30,9 +30,9 @@ try{
         }
         empls[name] = dep;
         names.push_back(name);
+} catch (...){while (true) {continue;}}
     }
     n = names.size();
-} catch (...){while (true) {continue;}}
 
     vector<Node> trees(n);
     vector<char> deps(n);
