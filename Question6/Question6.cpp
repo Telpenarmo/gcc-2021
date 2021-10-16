@@ -59,7 +59,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         auto req = split_string(inputdata_temp);
         
         auto li = empls[req[0]];
-        auto ri = empls
+        auto ri = empls[req[1]];
 
         vector<int> path;
         while (!root[li])
