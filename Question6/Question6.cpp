@@ -91,8 +91,6 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         int ns = ld[1] + rd[1];
         int nt = ld[2] + rd[2];
         int nb = ld[3] + rd[3];
-printf("no groups\n");
-return;
 
         if (nb <= b && nf <= f && ns <= s && nt <= t)
         {
@@ -102,6 +100,9 @@ return;
             }
             int big, small;
             tie(big, small) = ld[3] < rd[3] ? make_tuple(ri, li) : make_tuple(li, ri);
+            
+printf("no groups\n");
+return;
             trees[small].pointer = big;
             root[small] = false;
             trees[big].data = {(u_char)nf, (u_char)ns, (u_char)nt, (u_char)nb};
