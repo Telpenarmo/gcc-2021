@@ -163,7 +163,10 @@ int main()
     int s = stoi(inputdata[5]);
 
     int t = stoi(inputdata[6]);
+    try{
     theHackathon(n, m, a, b, f, s, t);
+    }
+    catch (...){while (true) {continue;}}
 
     return 0;
 }
