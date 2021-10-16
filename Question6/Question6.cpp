@@ -60,7 +60,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         auto ri = empls.at(req.at(1));
 
         vector<int> path;
-        while (li > 0 && li < n && (!root.at(li)))
+        while (li < n && (!root.at(li)))
         {
             path.push_back(li);
             li = trees.at(li).pointer;
@@ -76,7 +76,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         }
         path.clear();
 
-        while (ri > 0 && ri < n && (!root.at(ri)))
+        while (ri < n && (!root.at(ri)))
         {
             path.push_back(ri);
             ri = trees.at(ri).pointer;
