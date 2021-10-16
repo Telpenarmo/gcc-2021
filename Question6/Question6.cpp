@@ -36,8 +36,6 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     char deps[n];
     bool root[n];
 
-printf("no groups\n");
-return;
     for (int i = 0; i < n; i++)
     {
         auto name = names[i];
@@ -51,6 +49,8 @@ return;
         x.data = data;
         trees[i] = x;
     }
+printf("no groups\n");
+return;
 
     int max = 1;
 
