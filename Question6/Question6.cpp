@@ -11,7 +11,7 @@ typedef union
     int pointer;
 } Node;
 
-int get_root(int i, vector<Node> &trees, vector<bool> &root);
+int get_root(int i, Node trees[], bool root[]);
 
 vector<string> read_many();
 
@@ -40,9 +40,9 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     }
     n = names.size();
 
-    vector<Node> trees(n);
-    vector<char> deps(n);
-    vector<bool> root(n);
+    Node trees[n];
+    char deps[n];
+    bool root[n];
 
     for (int i = 0; i < n; i++)
     {
@@ -116,7 +116,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     }
 }
 
-int get_root(int i, vector<Node> &trees, vector<bool> &root)
+int get_root(int i, Node trees[], bool root[])
 {
     vector<int> path;
     while (!root[i])
