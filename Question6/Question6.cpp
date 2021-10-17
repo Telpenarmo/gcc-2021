@@ -12,7 +12,7 @@ typedef union
     int pointer;
 } Node;
 
-inline int get_root(int i, vector<Node> &trees, vector<bool> &root)
+int get_root(int i, vector<Node> &trees, vector<bool> &root)
 {
     vector<int> path;
     while (!root[i])
