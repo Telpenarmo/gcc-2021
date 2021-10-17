@@ -115,7 +115,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         return;
     }
 
-    vector<string> result;
+    set<string> result;
     for (int i = 0; i < n; i++)
     {
         int j = i;
@@ -126,11 +126,9 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         }
         if (trees.at(j).data.at(3) == max)
         {
-            result.push_back(names.at(i));
+            result.insert(names.at(i));
         }
     }
-
-    sort(result.begin(), result.end());
 
     for (string name : result)
     {
