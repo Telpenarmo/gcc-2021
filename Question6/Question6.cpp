@@ -5,27 +5,15 @@ using namespace std;
 vector<string> split_string(string);
 
 typedef array<unsigned char, 4> GroupData;
-
 typedef union
 {
     GroupData data;
     int pointer;
 } Node;
 
-int get_root(int i, vector<Node> &trees, vector<bool> &root)
-{
-    vector<int> path;
-    while (!root[i])
-    {
-        path.push_back(i);
-        i = trees[i].pointer;
-    }
-    for (int j : path)
-    {
-        trees[j].pointer = i;
-    }
-    return i;
-}
+int get_root(int i, vector<Node> &trees, vector<bool> &root);
+
+vector<string> read_many();
 
 void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 {
@@ -34,9 +22,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 
     for (int i = 0; i < n; i++)
     {
-        string inputdata_temp;
-        getline(cin, inputdata_temp);
-        auto inputdata = split_string(inputdata_temp);
+        auto inputdata = read_many();
         auto name = inputdata[0];
         auto dep = inputdata[1][0] - 49;
         if (empls.find(name) != empls.end())
@@ -60,26 +46,24 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 
     for (int i = 0; i < n; i++)
     {
-        auto name = names.at(i);
+        auto name = names[i];
         auto dep = empls[name];
         empls[name] = i;
-        deps.at(i) = dep;
+        deps[i] = dep;
         Node x;
         GroupData data = {0, 0, 0, 1};
         data[dep] = 1;
-        root.at(i) = true;
+        root[i] = true;
         x.data = data;
-        trees.at(i) = x;
+        trees[i] = x;
     }
     int max = 1;
 
     for (int i = 0; i < m; i++)
     {
-        string inputdata_temp;
-        getline(cin, inputdata_temp);
-        auto req = split_string(inputdata_temp);
-        auto li = empls.at(req.at(0));
-        auto ri = empls.at(req.at(1));
+        auto req = read_many();
+        auto li = empls[req[0]];
+        auto ri = empls[req[1]];
 
         li = get_root(li, trees, root);
         ri = get_root(ri, trees, root);
@@ -89,12 +73,12 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
             continue;
         }
 
-        auto ld = trees.at(li).data;
-        auto rd = trees.at(ri).data;
+        auto ld = trees[li].data;
+        auto rd = trees[ri].data;
         int nf = ld[0] + rd[0];
         int ns = ld[1] + rd[1];
         int nt = ld[2] + rd[2];
-        int nb = ld.at(3) + rd.at(3);
+        int nb = ld[3] + rd[3];
 
         if (nb <= b && nf <= f && ns <= s && nt <= t)
         {
@@ -103,7 +87,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
                 max = nb;
             }
             int big, small;
-            tie(big, small) = ld.at(3) < rd.at(3) ? make_tuple(ri, li) : make_tuple(li, ri);
+            tie(big, small) = ld[3] < rd[3] ? make_tuple(ri, li) : make_tuple(li, ri);
             trees[small].pointer = big;
             root[small] = false;
             trees[big].data = {(u_char)nf, (u_char)ns, (u_char)nt, (u_char)nb};
@@ -120,9 +104,9 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     for (int i = 0; i < n; i++)
     {
         int j = get_root(i, trees, root);
-        if (trees.at(j).data.at(3) == max)
+        if (trees[j].data[3] == max)
         {
-            result.insert(names.at(i));
+            result.insert(names[i]);
         }
     }
 
@@ -132,12 +116,31 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     }
 }
 
-int main()
+int get_root(int i, vector<Node> &trees, vector<bool> &root)
+{
+    vector<int> path;
+    while (!root[i])
+    {
+        path.push_back(i);
+        i = trees[i].pointer;
+    }
+    for (int j : path)
+    {
+        trees[j].pointer = i;
+    }
+    return i;
+}
+
+vector<string> read_many()
 {
     string inputdata_temp;
     getline(cin, inputdata_temp);
+    return split_string(inputdata_temp);
+}
 
-    vector<string> inputdata = split_string(inputdata_temp);
+int main()
+{
+    vector<string> inputdata = read_many();
 
     int n = stoi(inputdata[0]);
 
