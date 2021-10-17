@@ -11,6 +11,21 @@ typedef union
     int pointer;
 } Node;
 
+inline int get_root(int i, vector<Node> &trees, vector<bool> &root)
+{
+    vector<int> path;
+    while (!root[i])
+    {
+        path.push_back(i);
+        i = trees[i].pointer;
+    }
+    for (int j : path)
+    {
+        trees[j].pointer = i;
+    }
+    return i;
+}
+
 void theHackathon(int n, int m, int a, int b, int f, int s, int t)
 {
     unordered_map<string, int> empls;
@@ -65,28 +80,13 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
         auto li = empls.at(req.at(0));
         auto ri = empls.at(req.at(1));
 
-        vector<int> path;
-        while (!root.at(li))
-        {
-            path.push_back(li);
-            li = trees.at(li).pointer;
-        }
-        for (int j : path)
-        {
-            trees.at(j).pointer = li;
-        }
-        path.clear();
+        li = get_root(li, trees, root);
+        ri = get_root(ri, trees, root);
 
-        while (!root.at(ri))
+        if (li == ri)
         {
-            path.push_back(ri);
-            ri = trees.at(ri).pointer;
+            continue;
         }
-        for (int j : path)
-        {
-            trees.at(j).pointer = ri;
-        }
-        if (li == ri) {continue;}
 
         auto ld = trees.at(li).data;
         auto rd = trees.at(ri).data;
@@ -118,12 +118,7 @@ void theHackathon(int n, int m, int a, int b, int f, int s, int t)
     set<string> result;
     for (int i = 0; i < n; i++)
     {
-        int j = i;
-
-        while (!root.at(j))
-        {
-            j = trees.at(j).pointer;
-        }
+        int j = get_root(i, trees, root);
         if (trees.at(j).data.at(3) == max)
         {
             result.insert(names.at(i));
@@ -156,9 +151,9 @@ int main()
     int s = stoi(inputdata[5]);
 
     int t = stoi(inputdata[6]);
-    
+
     theHackathon(n, m, a, b, f, s, t);
-    
+
     return 0;
 }
 
