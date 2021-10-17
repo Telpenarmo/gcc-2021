@@ -5,6 +5,7 @@ using namespace std;
 vector<string> split_string(string);
 
 typedef array<unsigned char, 4> GroupData;
+
 typedef union
 {
     GroupData data;
