@@ -12,7 +12,6 @@ typedef union
 } Node;
 
 int get_root(int i, Node trees[], bool root[]);
-
 vector<string> read_many();
 
 void theHackathon(int n, int m, int a, int b, int f, int s, int t)
